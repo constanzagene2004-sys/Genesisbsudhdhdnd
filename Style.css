@@ -1,0 +1,110 @@
+:root{
+  --bg: #fbf8fc;
+  --card: #ffffff;
+  --border: #e2dff2;
+  --rosa: #f7cfe2;
+  --morado: #bca0c8;
+  --gris: #d7d7d7;
+  --texto: #2f2f37;
+  --accent: #cfaad9;
+  --shadow: rgba(0,0,0,0.06);
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: Inter, "Poppins", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+  margin: 0;
+  padding: 18px;
+}
+header{
+  text-align:center;
+  margin-bottom: 14px;
+}
+h1{margin:0;font-size:20px;}
+.sub{color:#6b6b76;margin-top:6px}
+
+#malla{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items:start;
+}
+
+/* Semestre card */
+.semestre{
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--shadow);
+  min-height: 140px;
+  position: relative;
+}
+.semestre h2{
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(0,0,0,0.02));
+  padding:6px;
+  border-radius:6px;
+}
+
+/* Certificate subtitle (decorative) */
+.certificate{
+  font-size:12px;
+  margin:6px 0;
+  color:#5b5b64;
+  padding:6px 8px;
+  border-radius:6px;
+  border:1px dashed #eee;
+  background: #fafafa;
+}
+
+/* Ramo */
+.ramo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px;
+  margin:6px 0;
+  border-radius:6px;
+  cursor:pointer;
+  user-select:none;
+  transition: all .18s ease;
+  border:1px solid rgba(0,0,0,0.04);
+  font-size:13px;
+}
+.ramo .code{font-size:11px;color:#4a4a56;margin-left:8px}
+.ramo.no-aprobado{ background: var(--rosa); color:#4a2036;}
+.ramo.aprobado{ background: var(--morado); color: #fff; text-decoration: line-through;}
+.ramo.bloqueado{ background: var(--gris); color:#6b6b6b; cursor:not-allowed; opacity:0.9; }
+
+.ramo:hover{ transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.06)}
+
+.badge{
+  font-size:11px;
+  padding:4px 6px;
+  border-radius:6px;
+  opacity:.95;
+}
+
+/* tooltip for missing prereqs */
+.tooltip{
+  position:absolute;
+  z-index: 40;
+  background:#fff;
+  border:1px solid #ddd;
+  padding:8px;
+  border-radius:6px;
+  font-size:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* responsive */
+@media (max-width:1000px){
+  #malla{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:600px){
+  #malla{ grid-template-columns: 1fr; }
+}
